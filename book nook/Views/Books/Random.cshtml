@@ -1,7 +1,21 @@
-﻿@model book_nook.Models.Book
+﻿@model book_nook.ViewModels.RandomBookViewModel
 @{
     ViewBag.Title = "Random";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>@Model.Name</h2>
+<h2>@Model.Book.Name</h2>
+@if (Model.Customers.Count == 0)
+{
+    <P>There is no Customers</P>
+}
+else
+{
+    <ul>
+        @{
+            foreach (var customer in Model.Customers)
+            {
+                <li>@customer.Name</li>
+            }
+        }
+    </ul>
+}
