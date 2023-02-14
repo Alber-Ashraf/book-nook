@@ -6,21 +6,26 @@ namespace book_nook.Controllers
 {
     public class CustomersController : Controller
     {
-        public IActionResult Customers()
+        public ViewResult Index()
         {
-            var customers = new List<Customer>
+            var customers = GetCustomers();
+
+            return View(customers);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var customer = GetCustomers().SingleOrDefault(c => c.Id == id);
+            return View(customer);
+        }
+
+        private IEnumerable<Customer> GetCustomers()
+        {
+            return new List<Customer>
             {
-                new Customer { Name = "Alber"},
-                new Customer { Name = "Bero"}
+                new Customer { Id = 1, Name = "John Smith" },
+                new Customer { Id = 2, Name = "Mary Williams" }
             };
-
-            var viewModel = new CustomerViewModel()
-            {
-                Customers = customers
-            };
-
-
-            return View(viewModel);
         }
     }
 }

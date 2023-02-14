@@ -6,7 +6,7 @@ namespace book_nook.Controllers
 {
     public class BooksController : Controller
     {
-        public ActionResult Books()
+        public ActionResult Index()
         {
             var books = new List<Book>
             {
