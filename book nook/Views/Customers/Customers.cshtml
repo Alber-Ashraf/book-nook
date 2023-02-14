@@ -1,0 +1,32 @@
+﻿@model book_nook.ViewModels.CustomerViewModel
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<P style="font-size:30px">Customers</P>
+
+
+@if (Model.Customers.Count == 0)
+{
+    <P>There are no Customers</P>
+}
+else
+{
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Customers</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var customer in Model.Customers)
+                {
+                    <tr><td>@customer.Name</td></tr>
+
+                }
+            }
+        </tbody>
+    </table>
+}

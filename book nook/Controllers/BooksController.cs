@@ -6,21 +6,19 @@ namespace book_nook.Controllers
 {
     public class BooksController : Controller
     {
-        public ActionResult Random()
+        public ActionResult Books()
         {
-            var book = new Book() { Name = "doom" };
-
-            var customers = new List<Customer>
+            var books = new List<Book>
             {
-                new Customer { Name = "Customer1"},
-                new Customer { Name = "Customer2"}
+                new Book { Name = "Doom"},
+                new Book { Name = "Death"}
             };
 
-            var viewModel = new RandomBookViewModel()
+            var viewModel = new BookViewModel()
             {
-                Book = book,
-                Customers = customers
+                Books = books
             };
+
 
             return View(viewModel);
         }

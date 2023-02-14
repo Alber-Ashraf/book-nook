@@ -2,9 +2,9 @@
 
 namespace book_nook.ViewModels
 {
-    public class RandomBookViewModel
+    public class CustomerViewModel
     {
-        public Book Book { get; set; }
         public List<Customer> Customers { get; set; }
+
     }
 }
